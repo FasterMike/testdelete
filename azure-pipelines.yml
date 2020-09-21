@@ -15,7 +15,7 @@ variables:
   imageRepository: 'fastermiketest'
   containerRegistry: 'fastermikeazure.azurecr.io'
   dockerfilePath: '**/Dockerfile'
-  tag: ''
+  tag: '229'
   imagePullSecret: 'fastermikeazurebda3-auth'
 
   # Agent VM image name
@@ -51,7 +51,6 @@ stages:
   jobs:
   - deployment: Deploy
     displayName: Deploy
-#    dependsOn: Build
     pool:
       vmImage: $(vmImageName)
     environment: 'FasterMiketestdelete.default'
@@ -67,11 +66,7 @@ stages:
               dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
           
 
-          - task: CmdLine@2
-            displayName: Update image
-            inputs:
-              script: |
-                 kubectl set image deployment/fastermiketest fastermiketest=fastermiketest:$(tag) --record
+          - bash: kubectl set image deployment/fastermiketest fastermiketest=fastermiketest:$(tag) --record
                  
 #                kubectl set image deployment 
 
