@@ -53,20 +53,21 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'FasterMiketestdelete.default'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: KubernetesManifest@0
-            displayName: Create imagePullSecret
-            inputs:
-              action: createSecret
-              secretName: $(imagePullSecret)
-              dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
-          
-
-          - bash: kubectl set image deployment/fastermiketest fastermiketest=fastermiketest:$(tag) --record
+#    environment: 'FasterMiketestdelete.default'
+#    strategy:
+#      runOnce:
+#        deploy:
+     steps:
+#          - task: KubernetesManifest@0
+#            displayName: Create imagePullSecret
+#            inputs:
+#              action: createSecret
+#              secretName: $(imagePullSecret)
+#             dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
+     - bash: az account set --subscription 1a28a519-15da-405e-86c2-4d7c830ff792
+     - bash: az aks get-credentials --resource-group AARGMiha1 --name AAKMiha1                
+            
+     - bash: kubectl set image deployment/fastermiketest fastermiketest=fastermiketest:$(tag) --record
                  
 #                kubectl set image deployment 
 
