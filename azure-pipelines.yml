@@ -51,7 +51,7 @@ stages:
   jobs:
   - deployment: Deploy
     displayName: Deploy
-    dependsOn: Build
+#    dependsOn: Build
     pool:
       vmImage: $(vmImageName)
     environment: 'FasterMiketestdelete.default'
