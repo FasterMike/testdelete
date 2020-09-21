@@ -53,13 +53,13 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'FasterMiketestdelete.default'
+      environment: 'FasterMiketestdelete.default'
 #    steps:
 #    - bash: az account set --subscription 1a28a519-15da-405e-86c2-4d7c830ff792
 
 #    - bash: az aks get-credentials --resource-group AARGMiha1 --name AAKMiha1
 
-    - bash: kubectl set image deployment/fastermiketest fastermiketest=fastermiketest:$(tag) --record
+     - bash: kubectl set image deployment/fastermiketest fastermiketest=fastermiketest:$(tag)-latest --record
 
 
 
