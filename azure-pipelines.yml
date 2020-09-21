@@ -53,7 +53,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-#    environment: 'FasterMiketestdelete.default'
+    environment: 'FasterMiketestdelete.default'
 #    strategy:
 #      runOnce:
 #        deploy:
