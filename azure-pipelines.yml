@@ -54,16 +54,16 @@ stages:
     pool:
       vmImage: $(vmImageName)
     environment: 'FasterMiketestdelete.default'
-#    strategy:
-#      runOnce:
-#        deploy:
-      steps:
-#          - task: KubernetesManifest@0
-#            displayName: Create imagePullSecret
-#            inputs:
-#              action: createSecret
-#              secretName: $(imagePullSecret)
-#             dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: KubernetesManifest@0
+            displayName: Create imagePullSecret
+            inputs:
+              action: createSecret
+              secretName: $(imagePullSecret)
+             dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
 
        - bash: az account set --subscription 1a28a519-15da-405e-86c2-4d7c830ff792
 
