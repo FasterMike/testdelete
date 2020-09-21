@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: fastermiketest 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastermiketest
+  template:
+    metadata:
+      labels:
+        app: fastermiketest 
+    spec:
+      containers:
+        - name: fastermiketest 
+          image: fastermikeazure.azurecr.io/fastermiketest
+          ports:
+          - containerPort: 80
