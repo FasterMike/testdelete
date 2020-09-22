@@ -65,10 +65,10 @@ stages:
           - bash: az aks get-credentials --resource-group AARGMiha1 --name AAAKMiha1
             displayName: 'Login into AKS cluster'
 
-          - bash: kubectl set image deployment/fastermiketest fastermiketest=fastermiketest:$(tag)-latest --record
+          - bash: kubectl set image deployment/fastermiketest fastermiketest=fastermikeazure.azurecr.io/fastermiketest:$(tag)-latest --record
             displayName: 'Deploy new docker-image'
 
-          - bash: kubectl describe pods | grep Image:
+          - bash: kubectl describe pods | grep "Image:"
             displayName: 'Test'
 
 
