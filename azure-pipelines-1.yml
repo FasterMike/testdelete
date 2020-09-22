@@ -69,7 +69,13 @@ stages:
             displayName: 'Deploy new docker-image'
 
           - bash: kubectl describe pods | grep Image:
-            displayName: 'If you see "latest" Test Complete'
+            displayName: 'Test'
+
+
+
+
+#          - bash: kubectl describe pods | grep Image:
+#            displayName: 'If you see "latest" Test Complete'
 
 
 
