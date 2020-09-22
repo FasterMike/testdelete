@@ -12,7 +12,7 @@ variables:
 
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '61a4c511-42db-47be-9fce-94cc08b3ca36'
-  imageRepository: 'fastermiketestdelete'
+  imageRepository: 'fastermiketest'
   containerRegistry: 'fastermikeazure.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
@@ -58,6 +58,48 @@ stages:
       runOnce:
         deploy:
           steps:
+#  - bash: az login --service-principal -u '09f9e6c1-cfe9-412f-a93c-7c044683c9f7' -p '6hza~k-f2XQ8P401WnZ-8RdU~N2mBMB~d_' --tenant '1c962577-9b3a-4d16-a4a9-eff280f52f4c'
+#    displayName: 'Login into Azure'
+
+
+#  - bash: az aks get-credentials --resource-group AARGMiha1 --name AAAKMiha1  --subscription '1a28a519-15da-405e-86c2-4d7c830ff792'
+
+#    displayName: 'Login into AKS cluster'
+
+#  - bash: kubectl set image deployment $(deployment) $(deployment)=$(AzureContainerRegistryNProd).azurecr.io/$(imageName):$(Build.SourceVersion)-$(repotag)-latest -n dicr
+ 
+#    displayName: 'Deploy new docker-image'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           - task: KubernetesManifest@0
             displayName: Create imagePullSecret
             inputs:
