@@ -68,8 +68,8 @@ stages:
           - bash: kubectl set image deployment/fastermiketest fastermiketest=fastermiketest:$(tag)-latest --record
             displayName: 'Deploy new docker-image'
 
-          - bash: kubectl describe pods | grep Image:
-            displayName: 'Show change image'
+#          - bash: kubectl describe pods | grep Image:
+#            displayName: 'Show change image'
 
 
 
