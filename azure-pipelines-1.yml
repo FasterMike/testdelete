@@ -58,7 +58,7 @@ stages:
       runOnce:
         deploy:
           steps:
-          - bash: az login -u 'fast3r.mike@gmail.com' -p 'L3tsr0ck!!'
+          - bash: az login --service-principal -u "e3e0142f-77c4-4b67-8d29-c56481ef2d4f" -p "8Y4Q3yFt7y_Y~0ulbB2it8kqZAO4qjIfV7" --tenant "1c962577-9b3a-4d16-a4a9-eff280f52f4c"
             displayName: 'Login into Azure'
 
 
@@ -67,6 +67,9 @@ stages:
 
           - bash: kubectl set image deployment/fastermiketest fastermiketest=fastermiketest:$(tag)-latest --record
             displayName: 'Deploy new docker-image'
+
+          - bash: kubectl describe pods | grep Image:
+            displayName: 'Show change image'
 
 
 
